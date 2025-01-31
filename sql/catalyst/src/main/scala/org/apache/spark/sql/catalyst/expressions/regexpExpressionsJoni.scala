@@ -38,7 +38,7 @@ import org.apache.spark.unsafe.types.UTF8String
 
 abstract class StringRegexExpressionJoni extends BinaryExpression
   with ImplicitCastInputTypes with Predicate {
-
+  override def nullIntolerant: Boolean = true
   def escape(v: Array[Byte]): Array[Byte]
   def matches(regex: Regex, str: Array[Byte]): Boolean
 
